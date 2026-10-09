@@ -139,6 +139,33 @@ Avoid raw subtitles, cue text, generated answers, names, actor/session IDs, and
 model prompts unless a separately reviewed diagnostic mode explicitly requires
 them.
 
+## Source map
+
+Use these primary references when adapting the pattern to a concrete platform:
+
+- [Amazon Vega `HTMLMediaElement` API](https://www.developer.amazon.com/docs/vega-api/0.24/classes.HTMLMediaElement.amazon-devices_react-native-w3cmedia)
+  documents `currentTime`, `duration`, `paused`, and seeking state for Vega SDK
+  0.24.
+- [WebVTT](https://www.w3.org/TR/webvtt1/) defines timestamped text tracks and
+  cue timing; it does not make the cue content trustworthy by itself.
+- [Strands custom tools](https://strandsagents.com/docs/user-guide/sdk/tools/custom-tools/)
+  documents typed Python/TypeScript tool definitions. The tool host still owns
+  authorization and data filtering.
+- [Strands tool security](https://strandsagents.com/docs/user-guide/sdk/tools/)
+  warns that tools execute with the permissions of the host process.
+- [AgentCore Memory types](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/memory-types.html)
+  distinguishes short-term events from extracted long-term records; choose
+  explicitly which mode a media product is allowed to use.
+- [AgentCore `CreateEvent`](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/short-term-create-event.html)
+  documents immutable events, actor/session scope, payload types, and extraction
+  configuration.
+- [OWASP LLM output handling](https://genai.owasp.org/llmrisk/llm052025-improper-output-handling/)
+  treats model output as untrusted input to downstream systems, supporting the
+  independent validator boundary used here.
+
+When a platform version changes, re-check the linked source and label measured
+device behavior separately from normative API behavior.
+
 ## Failure behavior
 
 Timeouts, throttling, model refusal, invalid JSON, missing tool use, validation

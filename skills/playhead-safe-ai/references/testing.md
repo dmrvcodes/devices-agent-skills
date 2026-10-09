@@ -88,3 +88,10 @@ timelines with unmistakable future-only markers make leaks easier to detect.
 - Logs are inspected for accidental story text and raw viewer/session IDs.
 - Live-mode behavior is tested separately from finite VOD when supported.
 - Hardware-only claims remain explicitly unverified until checked on hardware.
+
+The companion repository fixtures are:
+
+- [task scenarios](../evals/TASK_SCENARIOS.md) for boundary and failure cases;
+- [trigger prompts](../evals/TRIGGER_PROMPTS.md) for routing precision;
+- [evaluation results](../evals/RESULTS.md) for the exact checks this package
+  can claim without running a particular host model.

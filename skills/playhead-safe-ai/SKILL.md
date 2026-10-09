@@ -79,7 +79,9 @@ On rejection, return a reviewed boundary-specific fallback or a neutral
 unavailable state. Never display the unsafe model text alongside a warning.
 
 Read [architecture.md](references/architecture.md) when designing the request
-contract, tool surface, memory boundary, caching, or failure behavior.
+contract, tool surface, memory boundary, caching, or failure behavior. Its
+source map links the primary platform and security documentation behind the
+pattern.
 
 ## Keep personalization separate from media facts
 
@@ -129,6 +131,11 @@ boundary, evidence window, enforcement points, and remaining assumptions.
 Read [testing.md](references/testing.md) when implementing tests or producing a
 release checklist. Tests should prove invariants at boundary edges and failure
 paths, not only match preferred wording.
+
+The repository includes a lightweight, dependency-free content/eval check at
+`evals/check.mjs`. Run it with `node skills/playhead-safe-ai/evals/check.mjs`
+when editing this skill. The prompt matrix is a routing fixture, not a claim
+that every host's model selector behaves identically.
 
 Before calling the feature ready, verify at least:
 
